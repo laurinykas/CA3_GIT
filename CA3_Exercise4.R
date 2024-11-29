@@ -85,4 +85,13 @@ standard_errors <- sqrt(diag(solve(optim_results$hessian)[1:4, 1:4]))
 cat("\nStandard errors of the regression coefficients:\n")
 print(standard_errors)
 
+lm_fit <- lm(y ~ x1 + x2 + x3, data = df)
+
+beta_hat_lm <- coef(lm_fit)
+cat("\nEstimated coefficients from lm():\n")
+print(beta_hat_lm)
+
+sigma_hat_lm <- summary(lm_fit)$sigma
+cat("\nEstimated sigma from lm():\n")
+print(sigma_hat_lm)
 
